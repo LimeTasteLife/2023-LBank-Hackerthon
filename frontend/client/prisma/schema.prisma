@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  account       String    @unique
+  image         String?
+  series        String?
+  stamp         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Series {
+  id              Int       @id @default(autoincrement())
+  baseURI         String
+  title           String
+  benefit         String
+  owner           String
+  useWhere        String
+  useWhenFrom     DateTime?
+  useWhenTo       DateTime?
+  description     String
+  quality         Int
+  name0           String
+  image0          String
+  description0    String
+  transactionHash String
+  name1           String
+  image1          String
+  description1    String
+  latitude1       String
+  longitude1      String
+  address1        String
+  name2           String
+  image2          String
+  description2    String
+  latitude2       String
+  longitude2      String
+  address2        String
+  name3           String
+  image3          String
+  description3    String
+  latitude3       String
+  longitude3      String
+  address3        String
+  name4           String
+  image4          String
+  description4    String
+  latitude4       String
+  longitude4      String
+  address4        String
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  applyCount      Int       @default(0)
+}
+
+model nfts {
+  id          Int       @id @default(autoincrement())
+  token_id    Int
+  name        String    @db.VarChar(200)
+  image       String    @db.VarChar(1000)
+  description String    @db.VarChar(1000)
+  latitude    String    @db.VarChar(100)
+  longtitude  String    @db.VarChar(100)
+  created_at  DateTime  @db.DateTime(0)
+  updated_at  DateTime  @db.DateTime(0)
+  deleted_at  DateTime? @db.DateTime(0)
+}
+
+model series {
+  id               Int       @id @default(autoincrement())
+  title            String    @db.VarChar(200)
+  benefit          String    @db.VarChar(200)
+  description      String    @db.VarChar(1000)
+  quantitiy        Int
+  owner            String    @db.VarChar(200)
+  use_where        String    @db.VarChar(200)
+  use_when_from    DateTime? @db.DateTime(0)
+  use_when_to      DateTime? @db.DateTime(0)
+  apply_count      Int?      @default(0)
+  transaction_hash String    @db.VarChar(200)
+  created_at       DateTime  @db.DateTime(0)
+  updated_at       DateTime  @db.DateTime(0)
+  deleted_at       DateTime? @db.DateTime(0)
+}
+
+model user {
+  id         Int       @id @default(autoincrement())
+  account    String    @unique(map: "account") @db.VarChar(200)
+  name       String?   @db.VarChar(20)
+  email      String?   @unique(map: "email") @db.VarChar(100)
+  image      String?   @db.VarChar(1000)
+  created_at DateTime  @db.DateTime(0)
+  updated_at DateTime  @db.DateTime(0)
+  deleted_at DateTime? @db.DateTime(0)
+}
