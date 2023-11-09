@@ -62,7 +62,7 @@ export const FOOTER_LINKS = [
   },
   {
     title: 'Our Community',
-    links: ['Blockchain at Yonsei', 'GBIC', 'Polygon'],
+    links: ['Blockchain at Yonsei', 'LBANK', 'Polygon'],
   },
 ];
 
@@ -70,7 +70,7 @@ export const FOOTER_CONTACT_INFO = {
   title: 'Contact Us',
   links: [
     { label: 'Admin Officer', value: '123-456-7890' },
-    { label: 'Email Officer', value: 'dNFTwithIncheon.com' },
+    { label: 'Email Officer', value: 'dNFTwithLBANK.com' },
   ],
 };
 
@@ -133,14 +133,14 @@ export const ExampleSeries = {
     description:
       '강화도에 있는 다양한 맛집과 문하재를 탐방하면서 스탬프를 찍어오는 이벤트',
     useWhere: '인천 가락시작',
-    owner: 'GBIC',
+    owner: 'YouJun',
     useWhenFrom: 'Thu Oct 26 2023 00:00:00 GMT+0900 (Korean Standard Time)',
     useWhenTo: 'Thu Oct 26 2023 00:00:00 GMT+0900 (Korean Standard Time)',
   },
   '0': {
     name: 'Series 1 Stamp Board',
     image:
-      'https://raw.githubusercontent.com/LimeTasteLife/2023-GBIC-Hackerthon/49b30f091baa6c0fdae2bfa6d218a81a3158be7d/client/web3/metadata/series2incheon.png',
+      '',
     description: '첫번째 인천 스탬프 NFT 시리즈의 도장판',
     quantity: 10,
     series: 1,
@@ -148,7 +148,7 @@ export const ExampleSeries = {
   '1': {
     name: 'Series 1 Stamp 1',
     image:
-      'https://raw.githubusercontent.com/LimeTasteLife/2023-GBIC-Hackerthon/49b30f091baa6c0fdae2bfa6d218a81a3158be7d/client/web3/metadata/series2incheon.png',
+      '',
     description: '첫번째 인천 스탬프 NFT 시리즈의 도장',
     quantity: 10,
     lat: 37.2345,
@@ -159,7 +159,7 @@ export const ExampleSeries = {
   '2': {
     name: 'Series 1 Stamp 2',
     image:
-      'https://raw.githubusercontent.com/LimeTasteLife/2023-GBIC-Hackerthon/49b30f091baa6c0fdae2bfa6d218a81a3158be7d/client/web3/metadata/series2incheon.png',
+      '',
     description: '첫번째 인천 스탬프 NFT 시리즈의 도장',
     quantity: 10,
     lat: 37.2345,
@@ -170,7 +170,7 @@ export const ExampleSeries = {
   '3': {
     name: 'Series 1 Stamp 3',
     image:
-      'https://raw.githubusercontent.com/LimeTasteLife/2023-GBIC-Hackerthon/49b30f091baa6c0fdae2bfa6d218a81a3158be7d/client/web3/metadata/series2incheon.png',
+      '',
     description: '첫번째 인천 스탬프 NFT 시리즈의 도장',
     quantity: 10,
     lat: 37.2345,
@@ -181,7 +181,7 @@ export const ExampleSeries = {
   '4': {
     name: 'Series 1 Stamp 4',
     image:
-      'https://raw.githubusercontent.com/LimeTasteLife/2023-GBIC-Hackerthon/49b30f091baa6c0fdae2bfa6d218a81a3158be7d/client/web3/metadata/series2incheon.png',
+      '',
     description: '첫번째 인천 스탬프 NFT 시리즈의 도장',
     quantity: 10,
     lat: 37.2345,

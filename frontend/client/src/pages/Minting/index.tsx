@@ -317,7 +317,7 @@ const ERC1155 = (props: { seriesId: any }) => {
                   className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-400 focus:border-green-400 block w-full p-2.5  ${
                     errors.owner && 'border-rose-500  '
                   }`}
-                  placeholder='GBIC'
+                  placeholder='LBANK'
                 />
                 {errors.owner?.message && (
                   <p className='text-sm leading-relaxed text-rose-500 dark:text-rose-500'>

@@ -17,7 +17,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Head>
-        <title>D Incheon NFT</title>
+        <title>DNFT Ticket</title>
 
         <link rel='icon' href='/logo.png' />
       </Head>

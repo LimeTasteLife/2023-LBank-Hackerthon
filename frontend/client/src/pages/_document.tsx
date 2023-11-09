@@ -12,7 +12,7 @@ export default function Document() {
         ></script>
         <meta
           property='og:title'
-          content='Dynamic Incheon NFT with GBIC'
+          content='Dynamic NFT with LBANK'
           key='title'
         />
       </Head>

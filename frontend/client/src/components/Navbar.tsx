@@ -79,7 +79,7 @@ export default function App() {
         <Link href='/' color='foreground'>
           <NavbarBrand>
             <Image src='/logo.png' height={36} width={36} alt='logo' />
-            <p className='font-bold text-inherit ml-3'>Dynamic Incheon NFT</p>
+            <p className='font-bold text-inherit ml-3'>DNFT Ticket</p>
           </NavbarBrand>
         </Link>
       </NavbarContent>
