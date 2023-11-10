@@ -16,31 +16,33 @@ import { toast } from 'react-toastify';
 import { useSession } from 'next-auth/react';
 import dayjs from 'dayjs';
 import confetti from 'canvas-confetti';
-import { mintData } from '../../helpers/dataschema';
+
 import { ThirdwebStorage } from '@thirdweb-dev/storage';
 import { useStorage } from '@thirdweb-dev/react';
 import { seriesMintInfo } from '@/constants/category';
+import { mintDataChar } from '@/helpers/dataschemaChar';
+import ImageUploadChar from '@/components/ImageUploadChar/ImageUpload';
 
-export async function getServerSideProps() {
-  let seriesId;
+// export async function getServerSideProps() {
+//   let seriesId;
 
-  try {
-    // Send GET request using axios
-    const response = await axios.get(`http://13.232.70.72:80/series/last`);
-    console.log('resdewdeponse', response.data);
+//   try {
+//     // Send GET request using axios
+//     const response = await axios.get(`http://3.110.48.189:80/series/last`);
+//     console.log('resdewdeponse', response.data);
 
-    // Access the response data
-    seriesId = response.data.Id;
-    console.log(response.data);
-  } catch (error) {
-    console.error('Error fetching user profile:', error);
-    seriesId = null;
-  }
+//     // Access the response data
+//     seriesId = response.data.Id;
+//     console.log(response.data);
+//   } catch (error) {
+//     console.error('Error fetching user profile:', error);
+//     seriesId = null;
+//   }
 
-  return {
-    props: { seriesId: { ...seriesId } },
-  };
-}
+//   return {
+//     props: { seriesId: { ...seriesId } },
+//   };
+// }
 
 const ERC1155 = (props: { seriesId: any }) => {
   const seriesid = props.seriesId;
@@ -70,14 +72,14 @@ const ERC1155 = (props: { seriesId: any }) => {
   const options = {
     theme: {
       background: '',
-      todayBtn: 'bg-green-400 hover:bg-green-500',
+      todayBtn: 'bg-purple-400 hover:bg-purple-500',
       clearBtn: '',
       icons: '',
       text: '',
       disabledText: '',
-      input: 'focus:ring-green-400 focus:border-green-400',
+      input: 'focus:ring-purple-400 focus:border-purple-400',
       inputIcon: '',
-      selected: 'bg-green-500',
+      selected: 'bg-purple-500',
     },
   };
 
@@ -149,7 +151,7 @@ const ERC1155 = (props: { seriesId: any }) => {
     console.log(user.address);
     setIsLoading(true);
     console.log('data', data);
-    const result = mintData((data = { data }));
+    const result = mintDataChar((data = { data }));
     console.log('result', result.data[0]);
     toast.info('IPFS 업로드 준비중');
     const objects = [
@@ -178,7 +180,7 @@ const ERC1155 = (props: { seriesId: any }) => {
     // console.log('res', res);
 
     axios
-      .post('http://13.232.70.72:80/mint-series', plusAddress)
+      .post('http://3.110.48.189:80/mint-series', plusAddress)
       .then((response: any) => {
         toast.success('ERC1155 NFT Mint 완료');
         router.push(`/Series/${response.data.seriesId}`);
@@ -193,7 +195,7 @@ const ERC1155 = (props: { seriesId: any }) => {
       });
 
     // try {
-    //   const response = await fetch('http://13.232.70.72:80/mint-series', {
+    //   const response = await fetch('http://3.110.48.189:80/mint-series', {
     //     method: 'POST',
     //     headers: {
     //       'Content-Type': 'application/json',
@@ -240,10 +242,10 @@ const ERC1155 = (props: { seriesId: any }) => {
       <section className='bg-white '>
         <div className='py-8 px-4 mx-auto max-w-2xl lg:py-16'>
           <h2 className='mb-4 text-4xl font-bold text-center text-gray-900'>
-            Register My Series using ERC1155 in Polygon
+            Register My DNFT Character Ticket
           </h2>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <label className='block mb-2 text-xl font-bold text-gray-900 text-center border-t-5 pt-4 border-green-500 border-double'>
+            <label className='block mb-2 text-xl font-bold text-gray-900 text-center border-t-5 pt-4 border-purple-500 border-double'>
               1. Series {seriesId} 정보 입력
             </label>
 
@@ -266,10 +268,10 @@ const ERC1155 = (props: { seriesId: any }) => {
                       message: '100자를 넘길 수 없습니다.',
                     },
                   })}
-                  className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-400 focus:border-green-400 block w-full p-2.5  ${
+                  className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5  ${
                     errors.title && 'border-rose-500'
                   }`}
-                  placeholder='영종도 맛집 탐방!'
+                  placeholder='빠르게 티켓 선점하고 LBank 해커톤에 참여하자!'
                 />
                 {errors.title?.message && (
                   <p className='text-sm leading-relaxed text-rose-500 dark:text-rose-500'>
@@ -290,10 +292,10 @@ const ERC1155 = (props: { seriesId: any }) => {
                     maxLength: { value: 30, message: 'Max length is 30' },
                   })}
                   id='benefit'
-                  className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-400 focus:border-green-400 block w-full p-2.5  ${
+                  className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5  ${
                     errors.benefit && 'border-rose-500  '
                   }`}
-                  placeholder='지역문화상품권 10000원'
+                  placeholder='LBank 해커톤 참여권'
                 />
                 {errors.benefit?.message && (
                   <p className='text-sm leading-relaxed text-rose-500 dark:text-rose-500'>
@@ -314,7 +316,7 @@ const ERC1155 = (props: { seriesId: any }) => {
                     maxLength: { value: 30, message: 'Max length is 30' },
                   })}
                   id='owner'
-                  className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-400 focus:border-green-400 block w-full p-2.5  ${
+                  className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5  ${
                     errors.owner && 'border-rose-500  '
                   }`}
                   placeholder='LBANK'
@@ -337,7 +339,7 @@ const ERC1155 = (props: { seriesId: any }) => {
                     maxLength: { value: 100, message: 'Max length is 100' },
                   })}
                   id='useWhere'
-                  className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-400 focus:border-green-400 block w-full p-2.5  ${
+                  className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5  ${
                     errors.useWhere && 'border-rose-500 '
                   }`}
                   placeholder='혜택을 사용할 수 있는 장소'
@@ -359,7 +361,7 @@ const ERC1155 = (props: { seriesId: any }) => {
                       value > 0 || '최소 1개 이상이어야 합니다.',
                   })}
                   id='quantity'
-                  className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-400 focus:border-green-400 block w-full p-2.5  ${
+                  className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-400 focus:border-purple-400 block w-full p-2.5  ${
                     errors.quantity && 'border-rose-500 '
                   }`}
                   placeholder='NFT 수량'
@@ -434,7 +436,7 @@ const ERC1155 = (props: { seriesId: any }) => {
                       message: '최대 1000자까지 입력할 수 있습니다.',
                     },
                   })}
-                  className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-400 focus:border-green-400  h-40 ${
+                  className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-purple-400 focus:border-purple-400  h-40 ${
                     errors.description && 'border-rose-500 '
                   }`}
                   placeholder='이번 Series에 대한 자세한 내용을 기입해주세요.'
@@ -451,19 +453,19 @@ const ERC1155 = (props: { seriesId: any }) => {
               </div>
 
               <div className='col-span-2'>
-                <label className='block mb-2 text-xl font-bold text-gray-900 text-center border-t-5 pt-4 border-green-500 border-double'>
-                  2. NFT 정보 입력
+                <label className='block mb-2 text-xl font-bold text-gray-900 text-center border-t-5 pt-4 border-purple-500 border-double'>
+                  2. DNFT 정보 입력
                 </label>
 
-                <ImageUpload
+                <ImageUploadChar
                   onChange={(value) => setCustomValue('imageSrc', value)}
                   value={imageSrc}
                 />
               </div>
             </div>
 
-            <label className='block mb-2 mt-5 text-xl font-bold text-gray-900 text-center border-t-3 w-3/4 pt-4 border-green-500 border-dashed mx-auto'>
-              Stamp Board NFT (Series {seriesId} Stamp Board)
+            <label className='block mb-2 mt-5 text-xl font-bold text-gray-900 text-center border-t-3 w-3/4 pt-4 border-purple-500 border-dashed mx-auto'>
+              Level - 1 NFT
             </label>
 
             <div className='grid  sm:grid-cols-2 '>
@@ -484,10 +486,10 @@ const ERC1155 = (props: { seriesId: any }) => {
                       message: '최대 1000자까지 입력할 수 있습니다.',
                     },
                   })}
-                  className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-400 focus:border-green-400  h-30 ${
+                  className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-purple-400 focus:border-purple-400  h-30 ${
                     errors.stampBoardDesc && 'border-rose-500 '
                   }`}
-                  placeholder='이번 Series에 대한 자세한 내용을 기입해주세요.'
+                  placeholder='이 NFT에 대한 자세한 내용을 기입해주세요.'
                 />
                 {errors.stampBoardDesc?.message ? (
                   <p className='text-sm leading-relaxed text-rose-500 dark:text-rose-500'>
@@ -501,8 +503,8 @@ const ERC1155 = (props: { seriesId: any }) => {
               </div>
             </div>
 
-            <label className='block mb-2 mt-5 text-xl font-bold text-gray-900 text-center border-t-3 w-3/4 pt-4 border-green-500 border-dashed mx-auto'>
-              첫번째 Stamp NFT (Series {seriesId} Stamp 1)
+            <label className='block mb-2 mt-5 text-xl font-bold text-gray-900 text-center border-t-3 w-3/4 pt-4 border-purple-500 border-dashed mx-auto'>
+              Level - 2 NFT
             </label>
 
             <div className='grid sm:grid-cols-2'>
@@ -523,10 +525,10 @@ const ERC1155 = (props: { seriesId: any }) => {
                       message: '최대 1000자까지 입력할 수 있습니다.',
                     },
                   })}
-                  className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-400 focus:border-green-400  h-30 ${
+                  className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-purple-400 focus:border-purple-400  h-30 ${
                     errors.firstStampDesc && 'border-rose-500 '
                   }`}
-                  placeholder='이번 Series에 대한 자세한 내용을 기입해주세요.'
+                  placeholder='이 NFT에 대한 자세한 내용을 기입해주세요.'
                 />
                 {errors.firstStampDesc?.message ? (
                   <p className='text-sm leading-relaxed text-rose-500 dark:text-rose-500'>
@@ -558,8 +560,8 @@ const ERC1155 = (props: { seriesId: any }) => {
               </div>
             </div>
 
-            <label className='block mb-2 mt-5 text-xl font-bold text-gray-900 text-center border-t-3 w-3/4 pt-4 border-green-500 border-dashed mx-auto'>
-              두번째 Stamp NFT (Series {seriesId} Stamp 2)
+            <label className='block mb-2 mt-5 text-xl font-bold text-gray-900 text-center border-t-3 w-3/4 pt-4 border-purple-500 border-dashed mx-auto'>
+              Level - 3 NFT
             </label>
 
             <div className='grid sm:grid-cols-2'>
@@ -580,10 +582,10 @@ const ERC1155 = (props: { seriesId: any }) => {
                       message: '최대 1000자까지 입력할 수 있습니다.',
                     },
                   })}
-                  className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-400 focus:border-green-400  h-30 ${
+                  className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-purple-400 focus:border-purple-400  h-30 ${
                     errors.secondStampDesc && 'border-rose-500 '
                   }`}
-                  placeholder='이번 Series에 대한 자세한 내용을 기입해주세요.'
+                  placeholder='이 NFT에 대한 자세한 내용을 기입해주세요.'
                 />
                 {errors.secondStampDesc?.message ? (
                   <p className='text-sm leading-relaxed text-rose-500 dark:text-rose-500'>
@@ -615,8 +617,8 @@ const ERC1155 = (props: { seriesId: any }) => {
               </div>
             </div>
 
-            <label className='block mb-2 mt-5 text-xl font-bold text-gray-900 text-center border-t-3 w-3/4 pt-4 border-green-500 border-dashed mx-auto'>
-              세번째 Stamp NFT (Series {seriesId} Stamp 3)
+            <label className='block mb-2 mt-5 text-xl font-bold text-gray-900 text-center border-t-3 w-3/4 pt-4 border-purple-500 border-dashed mx-auto'>
+              Level - 4 NFT
             </label>
 
             <div className='grid sm:grid-cols-2'>
@@ -637,10 +639,10 @@ const ERC1155 = (props: { seriesId: any }) => {
                       message: '최대 1000자까지 입력할 수 있습니다.',
                     },
                   })}
-                  className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-400 focus:border-green-400  h-30 ${
+                  className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-purple-400 focus:border-purple-400  h-30 ${
                     errors.thirdStampDesc && 'border-rose-500 '
                   }`}
-                  placeholder='이번 Series에 대한 자세한 내용을 기입해주세요.'
+                  placeholder='이 NFT에 대한 자세한 내용을 기입해주세요.'
                 />
                 {errors.thirdStampDesc?.message ? (
                   <p className='text-sm leading-relaxed text-rose-500 dark:text-rose-500'>
@@ -672,8 +674,8 @@ const ERC1155 = (props: { seriesId: any }) => {
               </div>
             </div>
 
-            <label className='block mb-2 mt-5 text-xl font-bold text-gray-900 text-center border-t-3 w-3/4 pt-4 border-green-500 border-dashed mx-auto'>
-              네번째 Stamp NFT (Series {seriesId} Stamp 4)
+            <label className='block mb-2 mt-5 text-xl font-bold text-gray-900 text-center border-t-3 w-3/4 pt-4 border-purple-500 border-dashed mx-auto'>
+              Level - 5 NFT
             </label>
 
             <div className='grid sm:grid-cols-2'>
@@ -694,10 +696,10 @@ const ERC1155 = (props: { seriesId: any }) => {
                       message: '최대 1000자까지 입력할 수 있습니다.',
                     },
                   })}
-                  className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-400 focus:border-green-400  h-30 ${
+                  className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-purple-400 focus:border-purple-400  h-30 ${
                     errors.fourthStampDesc && 'border-rose-500 '
                   }`}
-                  placeholder='이번 Series에 대한 자세한 내용을 기입해주세요.'
+                  placeholder='이 NFT에 대한 자세한 내용을 기입해주세요.'
                 />
                 {errors.fourthStampDesc?.message ? (
                   <p className='text-sm leading-relaxed text-rose-500 dark:text-rose-500'>
@@ -739,7 +741,7 @@ const ERC1155 = (props: { seriesId: any }) => {
                 })}
                 checked={isChecked}
                 onChange={() => setIsChecked(!isChecked)}
-                className='w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500  focus:ring-2  '
+                className='w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500  focus:ring-2  '
               />
               <label
                 htmlFor='link-checkbox'
@@ -767,7 +769,7 @@ const ERC1155 = (props: { seriesId: any }) => {
               }
               type='submit'
               disableRipple
-              className="relative  w-full mt-4 bg-green-400 overflow-visible rounded-full hover:-translate-y-1  shadow-xl  after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
+              className="relative  w-full mt-4 bg-purple-400 overflow-visible rounded-full hover:-translate-y-1  shadow-xl  after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
               size='lg'
               isLoading={isLoading}
               disabled={isLoading}

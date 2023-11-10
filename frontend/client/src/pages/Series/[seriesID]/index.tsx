@@ -41,7 +41,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   try {
     // Send GET request using axios
     const response = await axios.get(
-      `http://13.232.70.72:80/series?id=${seriesID}`
+      `http://3.110.48.189:80/series?id=${seriesID}`
     );
     console.log('resdewdeponse', response.data);
 
@@ -53,10 +53,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     seriesInfo = null;
   }
 
-  
-
   // const transaction = await fetch(
-  //   `http://13.232.70.72:80/series?id=${context.params?.seriesID}`
+  //   `http://3.110.48.189:80/series?id=${context.params?.seriesID}`
   // )
   //   .then((res) => res.json())
   //   .then((data) => {
@@ -104,20 +102,18 @@ const SeriesID = (props: { transaction: any }) => {
 
   console.log('transaction', transaction);
 
-
-
   const handleClick = async () => {
     setIsLoading(true);
-    toast.info('신청 진행 중')
+    toast.info('신청 진행 중');
     const application = {
       address: `${user.address}`,
       seriesId: Number(`${transaction.seriesInfo.series}`),
     };
 
     console.log('application', application);
-    
+
     try {
-      const response = await fetch('http://13.232.70.72/participate-series', {
+      const response = await fetch('http://3.110.48.189/participate-series', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -126,17 +122,15 @@ const SeriesID = (props: { transaction: any }) => {
       });
       const data = await response.json();
       console.log(data);
-      toast.success('신청 완료 및 스탬프 보드 전송 완료(시간 소요)')
+      toast.success('신청 완료 및 스탬프 보드 전송 완료(시간 소요)');
       router.push(`/MyNFT/${user.address}`);
     } catch (error) {
       console.log('Error: ' + error);
-      toast.error('신청 실패' + error); 
+      toast.error('신청 실패' + error);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   };
-
-  
 
   // const transactionImages = {
   //   imageSrc: String(transaction.imageSrc),
@@ -245,15 +239,15 @@ const SeriesID = (props: { transaction: any }) => {
 
               <Button
                 isLoading={isLoading}
-                isDisabled={isLoading}   
+                isDisabled={isLoading}
                 className='inline-flex text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-xl shadow-green-500/50 font-medium rounded-lg text-lg px-5 py-3 text-center mr-2 mb-2'
                 onClick={() => {
                   if (session === null) {
                     alert('Login first');
                     router.push('/auth/login');
                     return;
-                  } 
-                  handleClick()
+                  }
+                  handleClick();
                 }}
               >
                 <svg
@@ -288,7 +282,8 @@ const SeriesID = (props: { transaction: any }) => {
           }}
           color='default'
           size='md'
-          value={ // TODO: count 변수 확인 
+          value={
+            // TODO: count 변수 확인
             transaction.count * (100 / Number(transaction.seriesInfo.quantity))
           }
         />
@@ -296,158 +291,199 @@ const SeriesID = (props: { transaction: any }) => {
 
       <div className='py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6 '>
         <div className='grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-          <Swiper
-            effect={'cube'}
-            grabCursor={true}
-            cubeEffect={{
-              shadow: true,
-              slideShadows: true,
-              shadowOffset: 20,
-              shadowScale: 0.94,
-            }}
-            pagination={true}
-            modules={[EffectCube, Pagination]}
-            className='mySwiper'
-          >
-            <SwiperSlide>
-              <Image
-                src='/NFTImages/incheon1.jpeg'
-                width={500}
-                height={500}
-                alt='we'
-              />
-            </SwiperSlide>
-          </Swiper>
-          <div className='text-center text-gray-600 flex justify-center flex-col bg-orange-100 border-5 border-orange-300 ring-2 ring-red-500 p-3'>
-            <h3 className='mb-1  text-xl font-semibold tracking-tight text-gray-900 '>
-              <span>{transaction.data[1].name}</span>
-            </h3>
-            <p>{transaction.data[1].description}</p>
-            <br />
-            <p className='text-black text-xl font-bold'>위치</p>
-            <p className='mt-3'>{transaction.data[1].attributes[2].value}</p>
-            <br />
-          </div>
-          <Swiper
-            effect={'cube'}
-            grabCursor={true}
-            cubeEffect={{
-              shadow: true,
-              slideShadows: true,
-              shadowOffset: 20,
-              shadowScale: 0.94,
-            }}
-            pagination={true}
-            modules={[EffectCube, Pagination]}
-            className='mySwiper'
-          >
-            <SwiperSlide>
-              <Image
-                src='/NFTImages/incheon2.jpeg'
-                width={500}
-                height={500}
-                alt='we'
-              />
-            </SwiperSlide>
-          </Swiper>
-          <div className='text-center text-gray-600 flex justify-center flex-col bg-blue-100 border-5 border-blue-300 ring-2 ring-blue-500 p-3'>
-            <h3 className='mb-1  text-xl font-semibold tracking-tight text-gray-900 '>
-              <span>{transaction.data[2].name}</span>
-            </h3>
-            <p>{transaction.data[2].description}</p>
-            <br />
-            <p className='text-black text-xl font-bold'>위치</p>
-            <p className='mt-3'>{transaction.data[2].attributes[2].value}</p>
-            <br />
-          </div>
-          <Swiper
-            effect={'cube'}
-            grabCursor={true}
-            cubeEffect={{
-              shadow: true,
-              slideShadows: true,
-              shadowOffset: 20,
-              shadowScale: 0.94,
-            }}
-            pagination={true}
-            modules={[EffectCube, Pagination]}
-            className='mySwiper'
-          >
-            <SwiperSlide>
-              <Image
-                src='/NFTImages/incheon3.jpeg'
-                width={500}
-                height={500}
-                alt='we'
-              />
-            </SwiperSlide>
-          </Swiper>
-          <div className='text-center text-gray-600 flex justify-center flex-col bg-teal-100 border-5 border-teal-300 ring-2 ring-teal-500 p-3'>
-            <h3 className='mb-1  text-xl font-semibold tracking-tight text-gray-900 '>
-              <span>{transaction.data[3].name}</span>
-            </h3>
-            <p>{transaction.data[3].description}</p>
-            <br />
-            <p className='text-black text-xl font-bold'>위치</p>
-            <p className='mt-3'>{transaction.data[3].attributes[2].value}</p>
-            <br />
-          </div>
-          <Swiper
-            effect={'cube'}
-            grabCursor={true}
-            cubeEffect={{
-              shadow: true,
-              slideShadows: true,
-              shadowOffset: 20,
-              shadowScale: 0.94,
-            }}
-            pagination={true}
-            modules={[EffectCube, Pagination]}
-            className='mySwiper'
-          >
-            <SwiperSlide>
-              <Image
-                src='/NFTImages/incheon4.jpeg'
-                width={500}
-                height={500}
-                alt='we'
-              />
-            </SwiperSlide>
-          </Swiper>
+          {transaction.data[1]?.image && (
+            <>
+              <Swiper
+                effect={'cube'}
+                grabCursor={true}
+                cubeEffect={{
+                  shadow: true,
+                  slideShadows: true,
+                  shadowOffset: 20,
+                  shadowScale: 0.94,
+                }}
+                pagination={true}
+                modules={[EffectCube, Pagination]}
+                className='mySwiper'
+              >
+                <SwiperSlide>
+                  <Image
+                    src={transaction.data[1]?.image}
+                    width={500}
+                    height={500}
+                    alt='we'
+                  />
+                </SwiperSlide>
+              </Swiper>
+              <div className='text-center text-gray-600 flex justify-center flex-col bg-orange-100 border-5 border-orange-300 ring-2 ring-red-500 p-3'>
+                <h3 className='mb-1  text-xl font-semibold tracking-tight text-gray-900 '>
+                  <span>{transaction.data[1]?.name}</span>
+                </h3>
+                <p>{transaction.data[1]?.description}</p>
+                <br />
+                <p className='text-black text-xl font-bold'>위치</p>
+                <p className='mt-3'>
+                  {transaction.data[1]?.attributes[2].value}
+                </p>
+                <br />
+              </div>
+            </>
+          )}
 
-          <div className='text-center text-gray-600 flex justify-center flex-col bg-purple-100 border-5 border-purple-300 ring-2 ring-purple-500 p-3'>
-            <h3 className='mb-1  text-xl font-semibold tracking-tight text-gray-900 '>
-              <span>{transaction.data[4].name}</span>
-            </h3>
-            <p>{transaction.data[4].description}</p>
-            <br />
-            <p className='text-black text-xl font-bold'>위치</p>
-            <p className='mt-3'>{transaction.data[4].attributes[2].value}</p>
-            <br />
-          </div>
+          {transaction.data[2]?.image && (
+            <>
+              <Swiper
+                effect={'cube'}
+                grabCursor={true}
+                cubeEffect={{
+                  shadow: true,
+                  slideShadows: true,
+                  shadowOffset: 20,
+                  shadowScale: 0.94,
+                }}
+                pagination={true}
+                modules={[EffectCube, Pagination]}
+                className='mySwiper'
+              >
+                <SwiperSlide>
+                  <Image
+                    src={transaction.data[2].image}
+                    width={500}
+                    height={500}
+                    alt='we'
+                  />
+                </SwiperSlide>
+              </Swiper>
+              <div className='text-center text-gray-600 flex justify-center flex-col bg-blue-100 border-5 border-blue-300 ring-2 ring-blue-500 p-3'>
+                <h3 className='mb-1  text-xl font-semibold tracking-tight text-gray-900 '>
+                  <span>{transaction.data[2].name}</span>
+                </h3>
+                <p>{transaction.data[2].description}</p>
+                <br />
+                <p className='text-black text-xl font-bold'>위치</p>
+                <p className='mt-3'>
+                  {transaction.data[2].attributes[2].value}
+                </p>
+                <br />
+              </div>
+            </>
+          )}
+
+          {transaction.data[3]?.image && (
+            <>
+              <Swiper
+                effect={'cube'}
+                grabCursor={true}
+                cubeEffect={{
+                  shadow: true,
+                  slideShadows: true,
+                  shadowOffset: 20,
+                  shadowScale: 0.94,
+                }}
+                pagination={true}
+                modules={[EffectCube, Pagination]}
+                className='mySwiper'
+              >
+                <SwiperSlide>
+                  <Image
+                    src={transaction.data[3].image}
+                    width={500}
+                    height={500}
+                    alt='we'
+                  />
+                </SwiperSlide>
+              </Swiper>
+              <div className='text-center text-gray-600 flex justify-center flex-col bg-teal-100 border-5 border-teal-300 ring-2 ring-teal-500 p-3'>
+                <h3 className='mb-1  text-xl font-semibold tracking-tight text-gray-900 '>
+                  <span>{transaction.data[3].name}</span>
+                </h3>
+                <p>{transaction.data[3].description}</p>
+                <br />
+                <p className='text-black text-xl font-bold'>위치</p>
+                <p className='mt-3'>
+                  {transaction.data[3].attributes[2].value}
+                </p>
+                <br />
+              </div>
+            </>
+          )}
+
+          {transaction.data[4]?.image && (
+            <>
+              <Swiper
+                effect={'cube'}
+                grabCursor={true}
+                cubeEffect={{
+                  shadow: true,
+                  slideShadows: true,
+                  shadowOffset: 20,
+                  shadowScale: 0.94,
+                }}
+                pagination={true}
+                modules={[EffectCube, Pagination]}
+                className='mySwiper'
+              >
+                <SwiperSlide>
+                  <Image
+                    src={transaction.data[4].image}
+                    width={500}
+                    height={500}
+                    alt='we'
+                  />
+                </SwiperSlide>
+              </Swiper>
+
+              <div className='text-center text-gray-600 flex justify-center flex-col bg-purple-100 border-5 border-purple-300 ring-2 ring-purple-500 p-3'>
+                <h3 className='mb-1  text-xl font-semibold tracking-tight text-gray-900 '>
+                  <span>{transaction.data[4].name}</span>
+                </h3>
+                <p>{transaction.data[4].description}</p>
+                <br />
+                <p className='text-black text-xl font-bold'>위치</p>
+                <p className='mt-3'>
+                  {transaction.data[4].attributes[2].value}
+                </p>
+                <br />
+              </div>
+            </>
+          )}
         </div>
       </div>
 
       <section className='bg-white dark:bg-gray-900'>
         <div className='gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6'>
-          <KakaoMapSeries
-            height='400px'
-            level={10}
-            draggable={true}
-            zoomable={true}
-            latitude1={transaction.data[1].attributes[0].value}
-            longitude1={transaction.data[1].attributes[1].value}
-            latitude2={transaction.data[2].attributes[0].value}
-            longitude2={transaction.data[2].attributes[1].value}
-            latitude3={transaction.data[3].attributes[0].value}
-            longitude3={transaction.data[3].attributes[1].value}
-            latitude4={transaction.data[4].attributes[0].value}
-            longitude4={transaction.data[4].attributes[1].value}
-            lo1={transaction.data[1].name}
-            lo2={transaction.data[2].name}
-            lo3={transaction.data[3].name}
-            lo4={transaction.data[4].name}
-          />
+          {transaction.data[1]?.attributes[0].value ? (
+            <KakaoMapSeries
+              height='400px'
+              level={10}
+              draggable={true}
+              zoomable={true}
+              latitude1={transaction.data[1].attributes[0].value}
+              longitude1={transaction.data[1].attributes[1].value}
+              latitude2={transaction.data[2].attributes[0].value}
+              longitude2={transaction.data[2].attributes[1].value}
+              latitude3={transaction.data[3].attributes[0].value}
+              longitude3={transaction.data[3].attributes[1].value}
+              latitude4={transaction.data[4].attributes[0].value}
+              longitude4={transaction.data[4].attributes[1].value}
+              lo1={transaction.data[1].name}
+              lo2={transaction.data[2].name}
+              lo3={transaction.data[3].name}
+              lo4={transaction.data[4].name}
+            />
+          ) : (
+            <></>
+            // <KakaoMapSeries
+            //   height='400px'
+            //   level={10}
+            //   draggable={true}
+            //   zoomable={true}
+            //   latitude1={transaction.data[0].attributes[0]?.value}
+            //   longitude1={transaction.data[0].attributes[1]?.value}
+            //   lo1={transaction.data[0].name}
+            // />
+          )}
+
           <div className='mt-4 md:mt-0'>
             <h2 className='mb-4 text-4xl tracking-tight font-extrabold text-gray-900 '>
               Description

@@ -16,6 +16,10 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL('/auth/login', req.url));
   }
 
+  if (pathname.startsWith('/MySeries') && !session) {
+    return NextResponse.redirect(new URL('/auth/login', req.url));
+  }
+
   if (pathname.startsWith('/transferNFT') && !session) {
     return NextResponse.redirect(new URL('/auth/login', req.url));
   }

@@ -4,8 +4,7 @@ import { useMotionValue, useTransform, motion } from 'framer-motion';
 import Link from 'next/link';
 import { formatTime } from '@/helpers/dayjs';
 
-const MainSeriesCard = ({item}: any) => {
-
+const MainSeriesCard = ({ item }: any) => {
   const truncateHexAddress = (hexAddress: string) => {
     const prefix = hexAddress.slice(0, 4); // Extract the '0x' prefix
     const truncatedAddress =
@@ -28,7 +27,9 @@ const MainSeriesCard = ({item}: any) => {
             className='inline-flex justify-between items-center px-1 pr-4 mb-7 text-sm text-gray-700 bg-green-400 rounded-full hover:bg-gray-200 '
           >
             <span className='absolute flex min-w-max text-gray font-semibold  sm:-top-[50px] sm:-left-[150px] ml-48 opacity-20  leading-0'>
-              <span className='text-[130px]'>#{item?.seriesInfo.series / 10}</span>
+              <span className='text-[130px]'>
+                #{item?.seriesInfo.series / 10}
+              </span>
             </span>
 
             <Avatar
@@ -43,10 +44,10 @@ const MainSeriesCard = ({item}: any) => {
           </a>
 
           <h1 className='max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl '>
-          {item.seriesInfo.title}
+            {item.seriesInfo.title}
           </h1>
           <p className='max-w-2xl mb-2 block font-light text-gray-500 lg:mb-3 md:text-lg lg:text-xl break-words dark:text-gray-400'>
-          {item.seriesInfo.description}
+            {item.seriesInfo.description}
           </p>
 
           <div className='flex flex-col mt-5 gap-1'>
@@ -58,13 +59,18 @@ const MainSeriesCard = ({item}: any) => {
               }}
               color='default'
               size='sm'
-              value={ 
-                item?.seriesInfo.applyCount * (100 / Number(item?.seriesInfo.quantity))
+              value={
+                item?.seriesInfo.applyCount *
+                (100 / Number(item?.seriesInfo.quantity))
               }
             />
             <div className='flex justify-between'>
-              <p className='text-small'>{item?.seriesInfo.applyCount}명 참여 완료</p>
-              <p className='text-small text-foreground/50'>최대 {item?.seriesInfo.quantity}명</p>
+              <p className='text-small'>
+                {item?.seriesInfo.applyCount}명 참여 완료
+              </p>
+              <p className='text-small text-foreground/50'>
+                최대 {item?.seriesInfo.quantity}명
+              </p>
             </div>
           </div>
 
@@ -86,28 +92,28 @@ const MainSeriesCard = ({item}: any) => {
           </blockquote>
 
           <Link
-          href={`/Series/${item?.seriesInfo.series}`}
-          className='mt-5 relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium text-green-400 border-2 border-green-400 rounded-full hover:text-white group hover:bg-gray-50'
-        >
-          <span className='absolute left-0 block w-full h-0 transition-all bg-green-400 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease'></span>
-          <span className='absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease'>
-            <svg
-              className='w-5 h-5'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M14 5l7 7m0 0l-7 7m7-7H3'
-              ></path>
-            </svg>
-          </span>
-          <span className='relative'>자세히 보기</span>
-        </Link>
+            href={`/Series/${item?.seriesInfo.series}`}
+            className='mt-5 relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium text-green-400 border-2 border-green-400 rounded-full hover:text-white group hover:bg-gray-50'
+          >
+            <span className='absolute left-0 block w-full h-0 transition-all bg-green-400 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease'></span>
+            <span className='absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease'>
+              <svg
+                className='w-5 h-5'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+                  d='M14 5l7 7m0 0l-7 7m7-7H3'
+                ></path>
+              </svg>
+            </span>
+            <span className='relative'>자세히 보기</span>
+          </Link>
 
           {/* <Link
             href='/Series/1'
@@ -144,34 +150,43 @@ const MainSeriesCard = ({item}: any) => {
                 className='grid grid-rows-2 grid-cols-2 gap-4'
                 draggable='false'
               >
-                <Image
-                  src={item?.data[1].image}
-                  alt='stamp1'
-                  width={100}
-                  height={100}
-                  className='rounded-xl shadow-2xl'
-                />
-                <Image
-                  src={item?.data[2].image}
-                  alt='stamp1'
-                  width={100}
-                  height={100}
-                  className='rounded-xl shadow-2xl'
-                />
-                <Image
-                  src={item?.data[3].image}
-                  alt='stamp1'
-                  width={100}
-                  height={100}
-                  className='rounded-xl shadow-2xl'
-                />
-                <Image
-                  src={item?.data[4].image}
-                  alt='stamp1'
-                  width={100}
-                  height={100}
-                  className='rounded-xl shadow-2xl'
-                />
+                {item?.data[1].image && (
+                  <Image
+                    src={item?.data[1].image}
+                    alt='stamp1'
+                    width={100}
+                    height={100}
+                    className='rounded-xl shadow-2xl'
+                  />
+                )}
+
+                {item?.data[2].image && (
+                  <Image
+                    src={item?.data[2].image}
+                    alt='stamp1'
+                    width={100}
+                    height={100}
+                    className='rounded-xl shadow-2xl'
+                  />
+                )}
+                {item?.data[3].image && (
+                  <Image
+                    src={item?.data[3].image}
+                    alt='stamp1'
+                    width={100}
+                    height={100}
+                    className='rounded-xl shadow-2xl'
+                  />
+                )}
+                {item?.data[4].image && (
+                  <Image
+                    src={item?.data[4].image}
+                    alt='stamp1'
+                    width={100}
+                    height={100}
+                    className='rounded-xl shadow-2xl'
+                  />
+                )}
               </div>
             </motion.div>
           </motion.div>

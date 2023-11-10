@@ -7,13 +7,13 @@ const Features = () => {
     <section className="flex-col flexCenter overflow-hidden bg-feature-bg bg-center bg-no-repeat py-24">
       <div className="max-container padding-container relative w-full flex justify-end">
         <div className="absolute flex flex-1 lg:min-h-[900px] -left-[200px]">
-          <Image
+          {/* <Image
             src="/mockup.png"
             alt="phone"
             width={800}
             height={1000}
             className="feature-phone"
-          />
+          /> */}
         </div>
 
         <div className="z-20 flex w-full flex-col lg:w-[60%]">

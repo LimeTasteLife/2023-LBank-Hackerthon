@@ -34,7 +34,7 @@ const SeriesCard = ({ item }: any) => {
   return (
     <Card
       isPressable
-      onPress={() => router.push(`/Series/${item.seriesInfo.series / 10}`)}
+      onPress={() => router.push(`/Series/${item.seriesInfo.series}`)}
       isBlurred
       className='border-none bg-background/60 max-w-[800px] relative'
       shadow='md'

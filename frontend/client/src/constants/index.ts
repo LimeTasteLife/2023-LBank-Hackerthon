@@ -5,6 +5,24 @@ export const NAV_LINKS = [
   { href: '/Series', key: 'Series', label: 'Series' },
   { href: '/MyNFT', key: 'MyNFT ', label: 'MyNFT ' },
   { href: '/transferNFT', key: 'transferNFT', label: 'TransferNFT' },
+  { href: '/MySeries', key: 'MySeries', label: 'MySeries' },
+];
+
+export const NAV_LINKS_Small = [
+  { href: '/', key: 'home', label: 'Home' },
+  { href: '/Minting/NFTTicket', key: 'NFTTicket', label: 'NFT-Ticket' },
+  {
+    href: '/Minting/DNFTStampTicket',
+    key: 'DNFTStampTicket',
+    label: 'Stamp-DNFT-Ticket',
+  },
+  {
+    href: '/Minting/DNFTCharacterTicket',
+    key: 'DNFTCharacterTicket',
+    label: 'Character-DNFT-Ticket',
+  },
+  { href: '/Series', key: 'Series', label: 'Series' },
+  { href: '/transferNFT', key: 'transferNFT', label: 'TransferNFT' },
 ];
 
 // CAMP SECTION
@@ -85,11 +103,11 @@ export const SOCIALS = {
   ],
 };
 
-export const IncheonSeriesExample = [
-  { label: '강화군청', lat: 37.7466294, lng: 126.4878771 },
-  { label: '광성보', lat: 37.664987, lng: 126.5300939 },
-  { label: '동막해수욕장', lat: 37.5925761, lng: 126.4581875 },
-  { label: '보문사', lat: 37.68862319999999, lng: 126.3219046 },
+export const LbankSeriesExample = [
+  { label: '이화여대', lat: 37.5618588, lng: 126.9468339 },
+  { label: '광운대', lat: 37.6194277, lng: 127.05982 },
+  { label: '고려대', lat: 37.58938759999999, lng: 127.0324773 },
+  { label: 'LBank 해커톤', lat: 37.5077899, lng: 127.0365299 },
 ];
 
 export const Step = [
@@ -97,31 +115,31 @@ export const Step = [
     id: 'world-1',
     imgUrl: '/lendingPage/walletLogin.png',
     title: '지갑으로 간편 로그인',
-    desc: 'Web3 wallet 만 있다면 별도의 회원가입 없이 쉽고 빠르게 로그인할 수 있습니다.'
+    desc: 'Web3 wallet 만 있다면 별도의 회원가입 없이 쉽고 빠르게 로그인할 수 있습니다.',
   },
   {
     id: 'world-2',
     imgUrl: '/NFTImages/search.png',
     title: '진행중인 시리즈 둘러보기',
-    desc: 'Series 페이지에서 현재 진행중인 Series를 확인하세요. NFT 수량은 정해져 있는 만큼 빠른 선점이 필요할 수 있습니다.'
+    desc: 'Series 페이지에서 현재 진행중인 Series를 확인하세요. NFT 수량은 정해져 있는 만큼 빠른 선점이 필요할 수 있습니다.',
   },
   {
     id: 'world-3',
     imgUrl: '/NFTImages/apply.png',
-    title: '원하는 시리즈 선택 후 스템프 보드 NFT 및 스템프 NFT 받기',
-    desc: '자신이 하고 싶은 Series를 빠르게 선택하고 도장(스탬프) NFT를 찍을 스템프 보드 NFT를 받으세요. 그리고 각각의 스템프 NFT를 받기 위한 조건(위치 및 유효기간)을 확인하세요.'
+    title: '원하는 시리즈 선택 후 NFT 수령 그리고 미션 시작',
+    desc: '자신이 하고 싶은 Series를 빠르게 선택하고 해당 NFT를 받으세요. 그리고 각각의 시리즈에 따라 존재하는 DNFT의 조건(위치 및 유효기간)을 확인하세요.',
   },
   {
     id: 'world-4',
     imgUrl: '/realCheck.png',
-    title: '미션 수행하면서 스탬프 NFT 받기',
-    desc: '미션을 수행했다면 Burrito Wallet 또는 SNS 를 통해 행위인증을 진행하세요. Burrito Wallet에 접속 후 You Jun 에게 본인의 얼굴과 해당 위치를 식별할 수 있는 장소에서 찍은 사진과 함께 지갑 주소를 메세지를 보내는 것이 행위 인증의 전부입니다.'
+    title: '미션 수행하면서 추가적인 NFT 받기',
+    desc: '미션을 수행했다면 이벤트 오너가 설정한 SNS 를 통해 행위인증을 진행하세요. 오너가 정한 시리즈 규칙에 따라 조금씩 다르지만, 보통 본인의 얼굴과 해당 위치를 식별할 수 있는 장소에서 찍은 사진과 함께 지갑 주소를 메세지를 보내는 것이 행위 인증의 전부입니다.',
   },
   {
     id: 'world-5',
     imgUrl: '/benefit.png',
     title: '준비된 또는 뜻밖의 혜택 받기',
-    desc: '행위 인증이 인정받게 되면 도장 NFT를 받게되고 MyNFT에서 스탬프 보드 NFT 위에 찍혀 있는 NFT을 확인 할 수 있습니다! 이제 이 NFT는 예정된 또는, 뜻밖의 혜택을 받을 수 있는 티켓이 됩니다.'
+    desc: '행위 인증이 인정받게 되면 NFT를 받게되고 MyNFT에서 NFT는 같은 시리즈에서 추가적으로 얻은 NFT로 인해 업그레이드 되어 있습니다. 이제 이 NFT는 예정된 또는, 뜻밖의 혜택을 받을 수 있는 티켓이 됩니다.',
   },
 ];
 
@@ -139,16 +157,14 @@ export const ExampleSeries = {
   },
   '0': {
     name: 'Series 1 Stamp Board',
-    image:
-      '',
+    image: '',
     description: '첫번째 인천 스탬프 NFT 시리즈의 도장판',
     quantity: 10,
     series: 1,
   },
   '1': {
     name: 'Series 1 Stamp 1',
-    image:
-      '',
+    image: '',
     description: '첫번째 인천 스탬프 NFT 시리즈의 도장',
     quantity: 10,
     lat: 37.2345,
@@ -158,8 +174,7 @@ export const ExampleSeries = {
   },
   '2': {
     name: 'Series 1 Stamp 2',
-    image:
-      '',
+    image: '',
     description: '첫번째 인천 스탬프 NFT 시리즈의 도장',
     quantity: 10,
     lat: 37.2345,
@@ -169,8 +184,7 @@ export const ExampleSeries = {
   },
   '3': {
     name: 'Series 1 Stamp 3',
-    image:
-      '',
+    image: '',
     description: '첫번째 인천 스탬프 NFT 시리즈의 도장',
     quantity: 10,
     lat: 37.2345,
@@ -180,8 +194,7 @@ export const ExampleSeries = {
   },
   '4': {
     name: 'Series 1 Stamp 4',
-    image:
-      '',
+    image: '',
     description: '첫번째 인천 스탬프 NFT 시리즈의 도장',
     quantity: 10,
     lat: 37.2345,
@@ -191,67 +204,69 @@ export const ExampleSeries = {
   },
 };
 
-
 export const testUser = [
   {
-      "id": 2,
-      "account": "0x435c7fAE3C33Bab84FF032A7af1ca531aeD2B2e7",
-      "name": null,
-      "email": null,
-      "image": null,
-      "createdAt": "2023-10-30T02:44:12.000Z",
-      "updatedAt": "2023-10-30T02:44:12.000Z",
-      "deletedAt": null
+    id: 2,
+    account: '0x435c7fAE3C33Bab84FF032A7af1ca531aeD2B2e7',
+    name: null,
+    email: null,
+    image: null,
+    createdAt: '2023-10-30T02:44:12.000Z',
+    updatedAt: '2023-10-30T02:44:12.000Z',
+    deletedAt: null,
   },
   {
-      "data": [
+    data: [
+      {
+        name: 'Series 1 Stamp Board',
+        image:
+          'https://res.cloudinary.com/dhtq54adh/image/upload/v1698513934/%E1%84%8C%E1%85%A6%E1%84%86%E1%85%A9%E1%86%A8_%E1%84%8B%E1%85%A5%E1%86%B9%E1%84%8B%E1%85%B3%E1%86%B7-5_rzlxlp.png',
+        description: 'aaaa',
+        attributes: [
           {
-              "name": "Series 1 Stamp Board",
-              "image": "https://res.cloudinary.com/dhtq54adh/image/upload/v1698513934/%E1%84%8C%E1%85%A6%E1%84%86%E1%85%A9%E1%86%A8_%E1%84%8B%E1%85%A5%E1%86%B9%E1%84%8B%E1%85%B3%E1%86%B7-5_rzlxlp.png",
-              "description": "aaaa",
-              "attributes": [
-                  {
-                      "trait_type": "Series",
-                      "value": 290
-                  }
-              ]
+            trait_type: 'Series',
+            value: 290,
+          },
+        ],
+      },
+      {
+        name: 'Series 1 Stamp 3',
+        image:
+          'https://res.cloudinary.com/dhtq54adh/image/upload/v1698513940/incheon1_ukgwtg.jpg',
+        description: 'nnnn',
+        attributes: [
+          {
+            trait_type: 'Latitude',
+            value: '37.4631505',
           },
           {
-              "name": "Series 1 Stamp 3",
-              "image": "https://res.cloudinary.com/dhtq54adh/image/upload/v1698513940/incheon1_ukgwtg.jpg",
-              "description": "nnnn",
-              "attributes": [
-                  {
-                      "trait_type": "Latitude",
-                      "value": "37.4631505"
-                  },
-                  {
-                      "trait_type": "Longtitude",
-                      "value": "126.4474815"
-                  },
-                  {
-                      "trait_type": "Address",
-                      "value": "대한민국 인천광역시 중구 공항로 인천국제공항 (ICN)"
-                  },
-                  {
-                      "trait_type": "Series",
-                      "value": "1"
-                  }
-              ]
-          }
-      ],
-      "baseURI": "https://c6b8e7180c3c42db758973559ad7f50d.ipfscdn.io/ipfs/QmbJvDptQstq75CwLTRuBXnvfDNqgjJZWdtDxN7y8eHSuQ",
-      "seriesInfo": {
-          "series": 290,
-          "title": "pppp",
-          "benefit": "oooo",
-          "description": "yyyy",
-          "quantity": 20,
-          "owner": "0x12345",
-          "useWhere": "uuuu",
-          "useWhenFrom": "2023-10-29T15:00:00.000Z",
-          "useWhenTo": "2023-10-30T15:00:00.000Z",
-          "applyCount": 1
-      }
-  }
-]
+            trait_type: 'Longtitude',
+            value: '126.4474815',
+          },
+          {
+            trait_type: 'Address',
+            value: '대한민국 인천광역시 중구 공항로 인천국제공항 (ICN)',
+          },
+          {
+            trait_type: 'Series',
+            value: '1',
+          },
+        ],
+      },
+    ],
+    baseURI:
+      'https://c6b8e7180c3c42db758973559ad7f50d.ipfscdn.io/ipfs/QmbJvDptQstq75CwLTRuBXnvfDNqgjJZWdtDxN7y8eHSuQ',
+    seriesInfo: {
+      series: 290,
+      title: 'pppp',
+      benefit: 'oooo',
+      description: 'yyyy',
+      quantity: 20,
+      owner: '0x12345',
+      useWhere: 'uuuu',
+      useWhenFrom: '2023-10-29T15:00:00.000Z',
+      useWhenTo: '2023-10-30T15:00:00.000Z',
+      applyCount: 1,
+    },
+  },
+];

@@ -21,9 +21,8 @@ const Guide = () => {
             따른 실질적인 보상을 얻을 수 있습니다! 보다 직관적인 UI로 여러분들은
             내가 원하는 혜택들을 선택하고 해당 미션을 달성할 수 있습니다. 그리고
             NFT 기술을 통해서 그 기록과 가치는 영구히 저장됩니다. 그 누구도
-            조작하거나 방해할 수 없습니다. 지금 바로 신청해서 스탬프 보드 NFT에
-            스탬프 NFT들을 찍으세요! 아래의 지도에 나와 있는 NFT와 Point를 얻을
-            수 있습니다!
+            조작하거나 방해할 수 없습니다. 지금 바로 신청해서 기반이 되는 NFT에
+            다양한 NFT들을 합쳐보세요! 보다 다양한 혜택이 당신을 기다리고 있습니다!
           </p>
         </div>
       </div>
@@ -64,14 +63,14 @@ const Guide = () => {
             showValueLabel={true}
           />
 
-          <Image src='/NFTImages/stampExample4.png'
+          <Image src='/Lbank/example1.png'
           width={300}
           height={300}
           alt='example'
           className='rounded-lg '
           />
 
-          <p className='regular-16 text-gray-20'>남은 목적지 : 보문사</p>
+          <p className='regular-16 text-gray-20'>남은 목적지 : LBank 해커톤 행사장</p>
         </div>
       </div>
     </section>

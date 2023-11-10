@@ -17,12 +17,10 @@ const Hero = () => {
           <span className='text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400'>
             Dynamic NFT
           </span>{' '}
-          Ticket event
+          Ticket Platform
         </span>
         <p className='regular-16 py-6 text-gray-30 xl:max-w-[520px]'>
-          스탬프 보드 형식의 Ticket DNFT로 쉽고 빠르게 여러분들의 티켓 이벤트를 만드세요! 이
-          스탬프 보드는 여러분들로 하여금 그 어떤 조작과 의심의 여지 없이 오로지
-          재미와 혜택을 위해 존재합니다! 고민하지 마시고 다양한 티켓 이벤트를 만들거나 참여하세요! 그 어떤 티켓 서비스 보다 자유롭고 저렴한, 그러나 강력한 보안을 가진 Ticket 생성, 참여, 관리 서비스를 제공합니다.
+          일반적인 NFT Ticket 부터 Stamp DNFT, 캐릭터 성장 DNFT까지, 그 어떤 티켓 서비스 보다 자유롭고 저렴한, 그러나 강력한 보안을 가진 Ticket 생성, 참여, 관리 서비스를 제공합니다.
         </p>
 
         <div className='my-8 flex flex-wrap gap-5'>
@@ -72,7 +70,7 @@ const Hero = () => {
       </div>
 
       <div className='relative flex flex-1 w-full justify-center  '>
-        <div className='sm:flex hidden flex-col absolute -left-32 space-y-7'>
+        <div className='sm:flex hidden flex-col absolute -left-24 space-y-7'>
           <Image
             src='/NFTImages/incheon1.jpeg'
             alt='stampBoardExample'
@@ -108,7 +106,7 @@ const Hero = () => {
                 height={24}
               />
             </div>
-            <p className='bold-18 text-white'>강화도 동막해수욕장</p>
+            <p className='bold-18 text-white'>성수동 팝업스토어</p>
           </div>
           <div className='flex flex-col'>
             <div className='flex flex-col'>

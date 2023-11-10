@@ -1,5 +1,5 @@
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
-import { IncheonSeriesExample } from '../constants';
+import {  LbankSeriesExample } from '../constants';
 import Image from 'next/image';
 
 interface KakaoMapProps {
@@ -19,7 +19,7 @@ const KakaoMap = ({
 }: KakaoMapProps) => {
   return (
     <Map
-      center={{ lat: 37.66673760000001, lng: 126.3833964 }}
+      center={{ lat: 37.56673760000001, lng: 126.8833964 }}
       style={{ width: width, height: height, borderRadius: '20px' }}
       level={level}
       draggable={draggable}
@@ -27,8 +27,8 @@ const KakaoMap = ({
     >
       <MapMarker
         position={{
-          lat: IncheonSeriesExample[1].lat,
-          lng: IncheonSeriesExample[1].lng,
+          lat: LbankSeriesExample[0].lat,
+          lng: LbankSeriesExample[0].lng,
         }}
         image={{
           src: '/checkSign.svg',
@@ -58,7 +58,7 @@ const KakaoMap = ({
           }}
         >
           <Image
-            src='/NFTImages/mapImage1.png'
+            src='/Lbank/lbank1.png'
             width={150}
             height={100}
             alt='example'
@@ -66,13 +66,13 @@ const KakaoMap = ({
            
           />
 
-          {IncheonSeriesExample[1].label}
+          {LbankSeriesExample[0].label}
         </div>
       </MapMarker>
       <MapMarker
         position={{
-          lat: IncheonSeriesExample[2].lat,
-          lng: IncheonSeriesExample[2].lng,
+          lat: LbankSeriesExample[2].lat,
+          lng: LbankSeriesExample[2].lng,
         }}
         image={{
           src: '/checkSign.svg',
@@ -102,7 +102,7 @@ const KakaoMap = ({
           }}
         >
           <Image
-            src='/NFTImages/mapImage2.png'
+            src='/Lbank/lbank3.png'
             width={150}
             height={100}
             alt='example'
@@ -110,13 +110,13 @@ const KakaoMap = ({
            
           />
 
-          {IncheonSeriesExample[2].label}
+          {LbankSeriesExample[2].label}
         </div>
       </MapMarker>
       <MapMarker
         position={{
-          lat: IncheonSeriesExample[3].lat,
-          lng: IncheonSeriesExample[3].lng,
+          lat: LbankSeriesExample[3].lat,
+          lng: LbankSeriesExample[3].lng,
         }}
       >
         <div
@@ -133,7 +133,7 @@ const KakaoMap = ({
           }}
         >
           <Image
-            src='/NFTImages/tradition6.jpeg'
+            src='/Lbank/lbank2.png'
             width={150}
             height={100}
             alt='example'
@@ -141,7 +141,7 @@ const KakaoMap = ({
            
           />
 
-          {IncheonSeriesExample[3].label}
+          {LbankSeriesExample[3].label}
         </div>
       </MapMarker>
     </Map>

@@ -21,12 +21,12 @@ const index = () => {
     toast.info('스템프 NFT 전달 중');
     const application = {
       address: data.receiverAddress,
-      series: (Number(data.seriesNumber) * 10),
+      series: Number(data.seriesNumber) * 10,
       stamp: Number(data.stampNumber),
     };
 
     try {
-      const response = await fetch('http://13.232.70.72/transfer-nft', {
+      const response = await fetch('http://3.110.48.189/transfer-nft', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

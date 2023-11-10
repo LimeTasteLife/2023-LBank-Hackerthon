@@ -1,10 +1,10 @@
-export const mintData = ({ data, id }: any) => {
+export const mintDataChar = ({ data, id }: any) => {
   // console.log('image array', data.imageSrc[1])
 
   return {
     seriesInfo: {
       series: Number(data.series) * 10,
-      ticketType: 1,
+      ticketType: 2,
       title: data.title.toString(),
       benefit: data.benefit.toString(),
       owner: data.owner.toString(),
@@ -16,7 +16,7 @@ export const mintData = ({ data, id }: any) => {
     },
     data: [
       {
-        name: `Series ${data.series} Stamp Board`,
+        name: `Series ${data.series} Level 1`,
         image: data.imageSrc[0],
         description: data.stampBoardDesc.toString(),
         attributes: [
@@ -27,7 +27,7 @@ export const mintData = ({ data, id }: any) => {
         ],
       },
       {
-        name: `Series ${data.series} Stamp 1`,
+        name: `Series ${data.series} Level 2`,
         image: data.imageSrc[1],
         description: data.firstStampDesc.toString(),
         attributes: [
@@ -50,7 +50,7 @@ export const mintData = ({ data, id }: any) => {
         ],
       },
       {
-        name: `Series ${data.series} Stamp 2`,
+        name: `Series ${data.series} Level 3`,
         image: data.imageSrc[2],
         description: data.secondStampDesc.toString(),
         attributes: [
@@ -73,7 +73,7 @@ export const mintData = ({ data, id }: any) => {
         ],
       },
       {
-        name: `Series ${data.series} Stamp 3`,
+        name: `Series ${data.series} Level 4`,
         image: data.imageSrc[3],
         description: data.thirdStampDesc.toString(),
         attributes: [
@@ -96,7 +96,7 @@ export const mintData = ({ data, id }: any) => {
         ],
       },
       {
-        name: `Series ${data.series} Stamp 4`,
+        name: `Series ${data.series} Level 5`,
         image: data.imageSrc[4],
         description: data.fourthStampDesc.toString(),
         attributes: [

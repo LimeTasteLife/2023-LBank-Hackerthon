@@ -1,5 +1,4 @@
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
-import { IncheonSeriesExample } from '../constants';
 
 interface KakaoMapProps {
   latitude1?: number | string;
@@ -10,10 +9,10 @@ interface KakaoMapProps {
   longitude3?: number | string;
   latitude4?: number | string;
   longitude4?: number | string;
-  lo1: any;
-  lo2: any;
-  lo3: any;
-  lo4: any;
+  lo1?: any;
+  lo2?: any;
+  lo3?: any;
+  lo4?: any;
 
   setCustomValue?: (id: string, value: number) => void;
   detailPage?: boolean;
