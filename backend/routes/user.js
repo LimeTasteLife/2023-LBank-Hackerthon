@@ -4,14 +4,18 @@ const { User, Nfts, Series, User_nfts } = require('../models');
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
+    const responseData = {
+        type0: [],
+        type1: [],
+        type2: [],
+    };
     const { account } = req.query;
     try {
-        const result = [];
         // find User 후
         const findUser = await User.findOne({
             where: { account: account },
         });
-        result.push(findUser);
+        responseData.user = findUser;
         // User가 가지고 있는 Series 조회 후
         const findSeries = await findUser.getSeries();
         //console.log(findSeries[0].dataValues.id);
@@ -90,12 +94,19 @@ router.get('/', async (req, res, next) => {
                     },
                 };
 
-                result.push(pushData);
+                const ticketType = findSeries[idx].ticketType;
+                if (ticketType === 0) {
+                    responseData.type0.push(pushData);
+                } else if (ticketType === 1) {
+                    responseData.type1.push(pushData);
+                } else if (ticketType === 2) {
+                    responseData.type2.push(pushData);
+                }
                 idx++;
             });
             // 이후 해당 정보들을 포매팅해서 전송
             await Promise.all(promises);
-            res.status(200).json(result);
+            res.status(200).json(responseData);
         }
     } catch (err) {
         console.error(err);
