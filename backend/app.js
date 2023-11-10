@@ -14,6 +14,7 @@ const participateSeriesRouter = require('./routes/participate-series');
 const transferNFTRouter = require('./routes/transfer-nft');
 const seriesRouter = require('./routes/series');
 const userRouter = require('./routes/user');
+const mySeriesRouter = require('./routes/myseries');
 
 app.use(morgan('dev'));
 app.use(cors());
@@ -64,6 +65,7 @@ app.use('/participate-series', participateSeriesRouter);
 app.use('/transfer-nft', transferNFTRouter);
 app.use('/series', seriesRouter);
 app.use('/user', userRouter);
+app.use('/myseries', mySeriesRouter);
 
 app.use((req, res, next) => {
     const error = new Error(`${req.method} ${req.url} \n no response for routers`);

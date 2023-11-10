@@ -81,6 +81,7 @@ router.get('/', async (req, res, next) => {
                         benefit: findSeries[idx].benefit,
                         description: findSeries[idx].description,
                         quantity: findSeries[idx].quantity,
+                        ticketType: findSeries[idx].ticketType,
                         owner: findSeries[idx].owner,
                         useWhere: findSeries[idx].useWhere,
                         useWhenFrom: findSeries[idx].useWhenFrom,

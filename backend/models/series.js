@@ -20,6 +20,10 @@ module.exports = class Series extends Sequelize.Model {
                     type: Sequelize.STRING(200),
                     allowNull: false,
                 },
+                ticketType: {
+                    type: Sequelize.INTEGER,
+                    allowNull: false,
+                },
                 description: {
                     type: Sequelize.STRING(1000),
                     allowNull: false,
